@@ -1,0 +1,9 @@
+torch>=1.12.0
+opencv-python
+paho-mqtt
+pyyaml
+numpy
+shapely
+ultralytics
+# Jetson specific: Jetson.GPIO (instalar via apt/jetson repos) - use conditional on hardware
+# RPi: RPi.GPIO
