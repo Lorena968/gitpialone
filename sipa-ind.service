@@ -1,0 +1,12 @@
+[Unit]
+Description=SIPA-IND Edge AI Service
+After=network.target
+
+[Service]
+WorkingDirectory=/opt/sipa-ind
+ExecStart=/usr/bin/python3 /opt/sipa-ind/app.py
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+

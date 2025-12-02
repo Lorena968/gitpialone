@@ -1,51 +1,43 @@
 camera:
-source: "rtsp://usuario:senha@192.168.1.100:554/stream"
-width: 1280
-height: 720
-
+  source: 0
+  width: 1280
+  height: 720
 
 model:
-path: "models/best.pt" # colocar o modelo treinado aqui
-device: "cpu" # ou "cuda:0" em Jetson com suporte
-conf_thres: 0.4
-iou_thres: 0.45
-
+  path: "models/best.pt"
+  device: "cpu"
+  conf_thres: 0.35
+  iou_thres: 0.45
 
 classes:
-person: 0
-helmet: 1
-harness: 2
-
+  person: 0
+  helmet: 1
+  harness: 2
 
 perimeter:
-# Polígono em coordenadas relativas (x, y) entre 0 e 1 — usado para definir zona de risco
-polygon:
-- [0.2, 0.6]
-- [0.8, 0.6]
-- [0.8, 1.0]
-- [0.2, 1.0]
-
+  polygon:
+    - [0.2, 0.6]
+    - [0.8, 0.6]
+    - [0.8, 1.0]
+    - [0.2, 1.0]
 
 mqtt:
-host: "broker.example.com"
-port: 8883
-topic: "sipa-ind/events"
-client_id: "sipa-edge-01"
-username: "mqttuser"
-password: "mqttpass"
-tls: false
-
+  host: "localhost"
+  port: 1883
+  topic: "sipa-ind/events"
+  client_id: "sipa-edge-01"
+  username: ""
+  password: ""
+  tls: false
 
 gpio:
-enabled: true
-strobe_pin: 18
-buzzer_pin: 23
-
+  enabled: false
+  strobe_pin: 18
+  buzzer_pin: 23
 
 thresholds:
-alert_latency_limit_s: 1.0
-min_confidence_for_detection: 0.5
-
+  alert_latency_limit_s: 1.0
+  min_confidence_for_detection: 0.5
 
 logging:
-events_db_file: "events.log"
+  events_db_file: "events.log"
